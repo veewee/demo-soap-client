@@ -9,13 +9,14 @@ use Phpro\SoapClient\ClientBuilder;
 use Phpro\SoapClient\ClientFactory;
 use Phpro\SoapClient\Soap\Handler\HttPlugHandle;
 use PHPUnit\Framework\TestCase;
+use WeatherService\WeatherClassmap;
 use WeatherService\WeatherClient;
 use WeatherService\Type;
 
 class WeatherClientTest extends TestCase
 {
     /**
-     * @var WheaterClient
+     * @var WeatherClient
      */
     private $client;
 
@@ -23,15 +24,18 @@ class WeatherClientTest extends TestCase
     {
         $clientBuilder = new ClientBuilder(
             new ClientFactory(WeatherClient::class),
-            PACKAGE_DIR . '/resources/wheater.wsdl',
+            PACKAGE_DIR . '/resources/weather.wsdl',
             [
-                'wsdl_cache' => WSDL_CACHE_NONE,
                 'soap_version' => SOAP_1_2,
             ]
         );
-        $clientBuilder->withClassMaps(WeatherClassMap::getCollection());
+        $clientBuilder->withClassMaps(WeatherClassmap::getCollection());
         $clientBuilder->withHandler(
-            HttPlugHandle::createForClient(GuzzleClient::createWithConfig([]))
+            HttPlugHandle::createForClient(GuzzleClient::createWithConfig([
+                'headers' => [
+                    'User-Agent' => 'testing/1.0'
+                ]
+            ]))
         );
 
         $this->client = $clientBuilder->build();
@@ -45,11 +49,11 @@ class WeatherClientTest extends TestCase
      */
     function it_can_fetch_city_wheater_for_zip_10013()
     {
-        $response = $this->client->getCityWheaterByZIP(
-            new Type\GetCityWeatherByZipRequest('10013')
+        $response = $this->client->getCityWeatherByZIP(
+            new Type\GetCityWeatherByZIP('10013')
         );
 
-        $this->assertInstanceOf(Type\GetCityWeatherByZipRequest::class, $response);
-        $this->assertTrue($response->getSuccess());
+        $this->assertInstanceOf(Type\GetCityWeatherByZIPResponse::class, $response);
+        $this->assertInstanceOf(Type\WeatherReturn::class, $response->getGetCityWeatherByZIPResult());
     }
 }

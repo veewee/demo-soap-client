@@ -4,7 +4,7 @@
     </listeners>
     <testsuites>
         <testsuite name="Integration">
-            <directory>./test/WheaterServiceTest/Integration</directory>
+            <directory>./test/WeatherServiceTest/Integration</directory>
         </testsuite>
     </testsuites>
 </phpunit>

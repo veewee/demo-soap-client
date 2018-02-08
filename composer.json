@@ -9,8 +9,10 @@
             "WeatherServiceTest\\": "test/WeatherServiceTest"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-        "phpro/soap-client": "^0.6.1",
+        "phpro/soap-client": "v0.7.0.x-dev",
         "psr/http-message": "^1.0",
         "php-http/httplug": "^1.1",
         "php-http/message-factory": "^1.0",
@@ -21,7 +23,7 @@
     },
     "require-dev": {
         "php-vcr/php-vcr": "^1.4",
-        "phpunit/phpunit": "^7.0",
+        "phpunit/phpunit": "^6.5",
         "zendframework/zend-code": "^3.3",
         "php-vcr/phpunit-testlistener-vcr": "^3.0"
     },
