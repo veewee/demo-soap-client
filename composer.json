@@ -1,12 +1,12 @@
 {
     "autoload": {
         "psr-4": {
-            "WheaterService\\": "src/"
+            "WeatherService\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "WheaterServiceTest\\": "test/WheaterServiceTest"
+            "WeatherServiceTest\\": "test/WeatherServiceTest"
         }
     },
     "require": {

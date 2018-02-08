@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace WheaterServiceTest\Integration;
+namespace WeatherServiceTest\Integration;
 
 use Http\Adapter\Guzzle6\Client as GuzzleClient;
 use Phpro\SoapClient\ClientBuilder;
 use Phpro\SoapClient\ClientFactory;
 use Phpro\SoapClient\Soap\Handler\HttPlugHandle;
 use PHPUnit\Framework\TestCase;
-use WheaterService\WheaterClient;
-use WheaterService\Type;
+use WeatherService\WeatherClient;
+use WeatherService\Type;
 
-class WheaterClientTest extends TestCase
+class WeatherClientTest extends TestCase
 {
     /**
      * @var WheaterClient
@@ -22,14 +22,14 @@ class WheaterClientTest extends TestCase
     protected function setUp()
     {
         $clientBuilder = new ClientBuilder(
-            new ClientFactory(WheaterClient::class),
+            new ClientFactory(WeatherClient::class),
             PACKAGE_DIR . '/resources/wheater.wsdl',
             [
                 'wsdl_cache' => WSDL_CACHE_NONE,
                 'soap_version' => SOAP_1_2,
             ]
         );
-        $clientBuilder->withClassMaps(WheaterClassMap::getCollection());
+        $clientBuilder->withClassMaps(WeatherClassMap::getCollection());
         $clientBuilder->withHandler(
             HttPlugHandle::createForClient(GuzzleClient::createWithConfig([]))
         );
@@ -46,10 +46,10 @@ class WheaterClientTest extends TestCase
     function it_can_fetch_city_wheater_for_zip_10013()
     {
         $response = $this->client->getCityWheaterByZIP(
-            new Type\GetCityWheaterByZipRequest('10013')
+            new Type\GetCityWeatherByZipRequest('10013')
         );
 
-        $this->assertInstanceOf(Type\GetCityWheaterByZipRequest::class, $response);
+        $this->assertInstanceOf(Type\GetCityWeatherByZipRequest::class, $response);
         $this->assertTrue($response->getSuccess());
     }
 }
