@@ -9,7 +9,6 @@ composer install
 ## Run code generation wizard
 
 ```sh
-$ composer clear
 $ ./vendor/bin/soap-client wizard
 ```
 
@@ -49,3 +48,12 @@ If you used the settings mentioned above, you are able to run the e2e tests.
 ```sh
 $ composer test
 ```
+
+
+## Clear generated code
+
+Want to test some other settings? No problem, just run
+
+````sh
+$ composer clear
+````
