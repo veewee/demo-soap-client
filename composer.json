@@ -29,6 +29,13 @@
     },
     "scripts": {
         "clear": "rm -rf config/soap-client.php src",
-        "test": "./vendor/bin/phpunit -c phpunit.xml"
+        "test": "./vendor/bin/phpunit -c phpunit.xml",
+        "generate-advanced": [
+            "@clear",
+            "soap-client generate:types --config='config/advanced-soap-client.php'",
+            "soap-client generate:classmap --config='config/advanced-soap-client.php'",
+            "soap-client generate:client --config='config/advanced-soap-client.php'",
+            "soap-client generate:clientfactory --config='config/advanced-soap-client.php'"
+        ]
     }
 }

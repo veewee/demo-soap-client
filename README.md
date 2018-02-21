@@ -49,6 +49,13 @@ If you used the settings mentioned above, you are able to run the e2e tests.
 $ composer test
 ```
 
+## Want to generate a more advanced codebase?
+
+*Note:* this will generate slightly different classes so the unit tests won't work. Try to fix them to see how the models behave.
+
+```sh
+$ composer generate-advanced
+```
 
 ## Clear generated code
 
