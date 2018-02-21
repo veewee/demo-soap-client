@@ -28,6 +28,7 @@
         "php-vcr/phpunit-testlistener-vcr": "^3.0"
     },
     "scripts": {
+        "clear": "rm -rf config/soap-client.php src",
         "test": "./vendor/bin/phpunit -c phpunit.xml"
     }
 }

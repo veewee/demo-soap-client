@@ -723,12 +723,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpro/soap-client.git",
-                "reference": "31e038c1e52591706ea57ae32a17893dcf4b41ad"
+                "reference": "928d5e1e52d247fc87409f2834f8df277742b056"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpro/soap-client/zipball/31e038c1e52591706ea57ae32a17893dcf4b41ad",
-                "reference": "31e038c1e52591706ea57ae32a17893dcf4b41ad",
+                "url": "https://api.github.com/repos/phpro/soap-client/zipball/928d5e1e52d247fc87409f2834f8df277742b056",
+                "reference": "928d5e1e52d247fc87409f2834f8df277742b056",
                 "shasum": ""
             },
             "require": {
@@ -798,7 +798,7 @@
             "keywords": [
                 "soap"
             ],
-            "time": "2018-02-21 15:36:26"
+            "time": "2018-02-21 16:00:27"
         },
         {
             "name": "psr/http-message",
