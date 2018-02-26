@@ -54,12 +54,12 @@ $ composer test
 *Note:* this will generate slightly different classes so the unit tests won't work. Try to fix them to see how the models behave.
 
 ```sh
-$ composer generate-advanced
+$ composer generate -- --config='config/advanced-soap-client.php'
 ```
 
 ## Clear generated code
 
-Want to test some other settings? No problem, just run
+Want to remove the generated code? No problem, just run
 
 ````sh
 $ composer clear
